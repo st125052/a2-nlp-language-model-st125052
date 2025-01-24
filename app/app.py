@@ -1,10 +1,17 @@
 from flask import Flask, request, send_from_directory, jsonify
 from flask_cors import CORS
 import pickle
+from helper.prediction import get_prediction
 
 # Load the model and the scaler
-with open('./models/language_model/language_model.pkl', 'rb') as model_file:
+with open('./models/LSTM/LSTM.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
+
+with open('./models/LSTM/tokenizer.pkl', 'rb') as model_file:
+    tokenizer = pickle.load(model_file)
+
+with open('./models/LSTM/vocab.pkl', 'rb') as model_file:
+    vocab = pickle.load(model_file)
 
 # Create the Flask app
 app = Flask(__name__, static_folder='./static', static_url_path='')
@@ -26,10 +33,9 @@ def serve_custom_path(path):
 def predict_price():
     input_search_text = request.args.get('search')
 
-    prediction = [word for (word, coefficient) in 
-                  model.most_similar(input_search_text)]
+    prediction = get_prediction(model, tokenizer, vocab, prompt=input_search_text)
 
-    return jsonify(prediction)
+    return jsonify(prediction,)
 
 # Run the app
 if __name__ == '__main__':
