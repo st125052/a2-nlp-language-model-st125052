@@ -35,7 +35,7 @@ def predict_price():
 
     prediction = get_prediction(model, tokenizer, vocab, prompt=input_search_text)
 
-    return jsonify(prediction,)
+    return jsonify(prediction)
 
 # Run the app
 if __name__ == '__main__':
