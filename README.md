@@ -54,7 +54,7 @@ The LSMT DL model was chosen for deployment.
 # Website Creation
 The model was then hosted over the Internet with Flask as the backend, HTML, CSS, JS as the front end, and Docker as the container. The end-user is presented with a UI wherein a search input box is present. Once the user types in the first set of words, they click on the `Generate Context` button. The input text is sent to the JS handler which makes an API call to the Flask backend. The Flask backend has the GET route which intercepts the HTTP request. The input text is then fed to the model to generate the next sequence of predicted tokens. These predicted tokens are then returned back to the JS handler as a list by the Flask backend. The JS handler then appends each token in the received list into the result container's inner HTML and finally makes it visible for the output to be shown. 
 
-A Vanilla architecture was chosen due to time constraints. In a more professional, the ideal approach would be used frameworks like React, Angular and Vue for Frontend and ASP.NET with Flask or Django for Backend.
+A Vanilla architecture was chosen due to time constraints. In a more professional scenario, the ideal approach would be used frameworks like React, Angular and Vue for Frontend and ASP.NET with Flask or Django for Backend.
 
 The following describes the key points of the hosting discussion.
 > **1. DigitalOcean (Hosting Provider)**
