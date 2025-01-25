@@ -107,7 +107,7 @@ You can access the website [here](https://aitmltask.online).
 Note that currently, the solution supports slightly meaningful context generation only on a limited words related to Atheism like "Atheism is", "Atheism is good ", etc. The model may generate gibberish for certain inputs and is a known limitation.
 
 
-# How to Run the Search Engine Docker Container Locally
+# How to Run the Language Model Docker Container Locally
 ### Step 1: Clone the Repository
 > - First, clone the repository to your local machine.
 ### Step 2: Install Docker
